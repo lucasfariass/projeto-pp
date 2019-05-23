@@ -1,3 +1,53 @@
-<p>
-  form-medicos works!
-</p>
+<div class="container">
+
+  <div class="page-header">
+    <h3>Médico</h3>
+  </div>
+
+  <app-card-container>
+
+    <h5>Dados do médico</h5>
+    <form [formGroup]="formMedico">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="">Nome</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="">Especialidade</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </form>
+  </app-card-container>
+  <br>
+  <app-card-container>
+
+    <h5>Dados do consultório</h5>
+    <form [formGroup]="formConsultorio">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="">Nome</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 form-group">
+          <label for="">Rua</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="">Número</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="">Bairro</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </form>
+  </app-card-container>
+
+</div>

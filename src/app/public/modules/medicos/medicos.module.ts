@@ -3,12 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { MedicosRoutingModule } from './medicos-routing.module';
 import { FormMedicosComponent } from './components/form-medicos/form-medicos.component';
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FormMedicosComponent],
   imports: [
     CommonModule,
-    MedicosRoutingModule
+    MedicosRoutingModule,
+    SharedComponentsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MedicosModule { }
