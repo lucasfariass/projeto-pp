@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MedicosService } from '../../services/medicos.service';
+import { Medico } from '../../models/medico.models';
 
 @Component({
   selector: 'app-form-medicos',
@@ -13,7 +15,8 @@ export class FormMedicosComponent implements OnInit {
   formEndereco: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private medicosService: MedicosService
   ) { }
 
   ngOnInit() {
@@ -27,17 +30,32 @@ export class FormMedicosComponent implements OnInit {
     });
 
     this.formConsultorio = this.fb.group({
-      nome: [null, Validators.required]
-    });
-
-    this.formEndereco = this.fb.group({
+      nome: [null, Validators.required],
       rua: [null, Validators.required],
       bairro: [null, Validators.required],
       numero: [null, Validators.required],
       cidade: [null, Validators.required],
       estado: [null, Validators.required],
-      complemento: [null, Validators.required]
     });
+
+  }
+
+  salvarMedico() {
+    this.medicosService.salvarMedico(this.montarMedico()).
+      subscribe(
+        (res) => {
+          console.log(res);
+        }
+      );
+  }
+
+  montarMedico() {
+    const medico: Medico = {
+      nome: this.formMedico.get('nome'). value,
+      especialidade: this.formMedico.get('especialidade').value,
+      consultorio: this.formConsultorio.getRawValue()
+    };
+    return medico;
   }
 
 }

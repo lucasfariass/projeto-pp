@@ -1,6 +1,8 @@
-import { Endereco } from './endereco.model';
-
 export interface Consultorio {
     nome: string;
-    endereco: Endereco;
+    rua: string;
+    bairro: string;
+    numero: string;
+    cidade: string;
+    estado: string;
 }

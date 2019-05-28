@@ -29,3 +29,8 @@
     background-color: #e6e6e6;
     border-color: #adadad;
 }
+
+.page-header {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}

@@ -5,6 +5,7 @@ import { MedicosRoutingModule } from './medicos-routing.module';
 import { FormMedicosComponent } from './components/form-medicos/form-medicos.component';
 import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MedicosService } from './services/medicos.service';
 
 @NgModule({
   declarations: [FormMedicosComponent],
@@ -14,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedComponentsModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    MedicosService
   ]
 })
 export class MedicosModule { }
