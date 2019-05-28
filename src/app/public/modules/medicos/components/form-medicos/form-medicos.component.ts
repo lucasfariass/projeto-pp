@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MedicosService } from '../../services/medicos.service';
 import { Medico } from '../../models/medico.models';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-medicos',
@@ -16,7 +17,8 @@ export class FormMedicosComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private medicosService: MedicosService
+    private medicosService: MedicosService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -44,7 +46,7 @@ export class FormMedicosComponent implements OnInit {
     this.medicosService.salvarMedico(this.montarMedico()).
       subscribe(
         (res) => {
-          console.log(res);
+          this.toastrService.success(res);
         }
       );
   }

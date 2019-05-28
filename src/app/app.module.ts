@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedComponentsModule } from './shared/shared-components/shared-components.module';
 import { PublicModule } from './public/public.module';
 import { CoreModule } from './core/core.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     SharedComponentsModule,
     PublicModule,
-    CoreModule.forRoot()
+    CoreModule.forRoot(),
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+      timeOut: 3000,
+      positionClass: 'toast-top-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
