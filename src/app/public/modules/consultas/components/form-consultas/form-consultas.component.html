@@ -5,8 +5,6 @@
   </div>
 
   <app-card-container>
-
-    <h5>Dados do médico</h5>
     <form [formGroup]="formConsulta">
       <div class="row">
         <div class="col-md-6 form-group">
@@ -28,7 +26,7 @@
     <div class="row">
       <div class="col-md-12 d-flex justify-content-end">
         <button class="btn btn-primario mr-2" type="button" (click)="salvarConsulta()">Salvar</button>
-        <button class="btn btn-padrao" type="button">Cancelar</button>
+        <button class="btn btn-padrao" type="button" routerLink="../pesquisar">Cancelar</button>
       </div>
     </div>
   </app-card-container>
