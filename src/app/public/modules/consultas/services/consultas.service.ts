@@ -1,34 +1,23 @@
 import { Injectable } from '@angular/core';
 import { MedicosSelect } from '../models/medicos-select.model';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { Consulta } from '../models/consulta.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+const ENDPOINTS = {
+  medico: 'medico'
+};
 
 @Injectable()
 export class ConsultasService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  getMedicos() {
-    const medicos: Array<MedicosSelect> = [
-      {
-        id: 0,
-        nome: 'José'
-      },
-      {
-        id: 1,
-        nome: 'Xico'
-      },
-      {
-        id: 2,
-        nome: 'João'
-      },
-      {
-        id: 3,
-        nome: 'Maria'
-      }
-    ];
-
-    return of(medicos);
+  getMedicos(): Observable<Array<MedicosSelect>> {
+    return this.http.get<Array<MedicosSelect>>(`${environment.API_URL}/${ENDPOINTS.medico}/select`);
   }
 
   getConsultas() {

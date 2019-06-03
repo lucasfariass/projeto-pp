@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { SharedComponentsModule } from './shared/shared-components/shared-components.module';
 import { PublicModule } from './public/public.module';
 import { CoreModule } from './core/core.module';
-import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,9 @@ import { ToastrModule } from 'ngx-toastr';
     SharedComponentsModule,
     PublicModule,
     CoreModule.forRoot(),
-    ToastrModule.forRoot({
-      preventDuplicates: true,
-      timeOut: 3000,
-      positionClass: 'toast-top-right'
-    })
+    HttpClientModule,
+    NgxSpinnerModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

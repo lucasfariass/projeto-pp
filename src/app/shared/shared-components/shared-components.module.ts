@@ -6,6 +6,7 @@ import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { CardContainerComponent } from './card-container/card-container.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,12 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PaginationModule.forRoot(),
     FormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+      timeOut: 3000,
+      positionClass: 'toast-top-right'
+    }),
   ],
   exports: [
     NavbarComponent,

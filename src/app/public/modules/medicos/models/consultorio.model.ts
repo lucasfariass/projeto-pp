@@ -2,7 +2,7 @@ export interface Consultorio {
     nome: string;
     rua: string;
     bairro: string;
-    numero: string;
+    numero: number;
     cidade: string;
     estado: string;
 }
