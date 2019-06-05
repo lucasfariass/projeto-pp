@@ -16,6 +16,7 @@ export class PesquisarConsultasComponent implements OnInit {
   formPesquisa: FormGroup;
   medicosSelect: Array<MedicosSelect>;
   consultas: Array<ConsultaPesquisaResposta>;
+  totalRegistro: number;
   pageIndex: number;
 
   constructor(
@@ -62,8 +63,9 @@ export class PesquisarConsultasComponent implements OnInit {
     this.consultasService.getConsultas(filtros).
       subscribe(
         (res) => {
-          if (res.length) {
-            this.consultas = res;
+          if (res.conteudo.length) {
+            this.consultas = res.conteudo;
+            this.totalRegistro = res.totalRegistro;
           } else {
             this.resetarFormulario();
             this.toastrService.error('Nenhuma consulta encontrada');

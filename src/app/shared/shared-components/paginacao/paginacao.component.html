@@ -1,10 +1,7 @@
-<div class="row" *ngIf="totalItems > 10">
+<div class="row" *ngIf="totalItems >= 10">
   <div class="col-sm-12 d-flex justify-content-center">
-    <pager [totalItems]="totalItems" [(ngModel)]="pageIndex" (pageChanged)="novaPagina($event)" pageBtnClass="btn"
-      [itemsPerPage]="10" class="pull-left">
-    </pager>
-    <!-- <pagination [(ngModel)]="pageIndex" class="pagination-sm" (pageChanged)="novaPagina($event)" [boundaryLinks]="true"
+    <pagination [(ngModel)]="pageIndex" class="pagination-sm" (pageChanged)="novaPagina($event)" [boundaryLinks]="true"
       [totalItems]="totalItems" previousText="Anterior" nextText="Próxima" firstText="Primeira" lastText="Última">
-    </pagination> -->
+    </pagination>
   </div>
 </div>

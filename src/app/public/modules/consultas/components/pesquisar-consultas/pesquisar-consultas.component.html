@@ -47,6 +47,6 @@
         </tr>
       </tbody>
     </table>
-    <app-paginacao [pageIndex]="pageIndex" (consultarPagina)="executarPesquisa($event)"></app-paginacao>
+    <app-paginacao [pageIndex]="pageIndex" [totalItems]="totalRegistro" (consultarPagina)="executarPesquisa($event)"></app-paginacao>
   </app-card-container>
 </div>
