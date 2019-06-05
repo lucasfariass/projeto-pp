@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "assets/css/ngx-spinner.css";
+@import '~ngx-toastr/toastr.css';
+
 .app-style {
     background-color: #ecf0f1;
 }
@@ -35,6 +39,10 @@
     margin-bottom: 1rem;
 }
 
-#toast-container > div {
+/* #toast-container > div {
     opacity:1;
+} */
+
+.toast {
+    opacity: 1 !important;
 }

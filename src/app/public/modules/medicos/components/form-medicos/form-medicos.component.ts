@@ -13,7 +13,6 @@ export class FormMedicosComponent implements OnInit {
 
   formMedico: FormGroup;
   formConsultorio: FormGroup;
-  formEndereco: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -43,12 +42,19 @@ export class FormMedicosComponent implements OnInit {
   }
 
   salvarMedico() {
-    this.medicosService.salvarMedico(this.montarMedico()).
-      subscribe(
-        (res) => {
-          this.toastrService.success(res);
-        }
-      );
+    if (this.formMedico.valid && this.formConsultorio.valid) {
+      this.medicosService.salvarMedico(this.montarMedico()).
+        subscribe(
+          (res) => {
+            this.toastrService.success('Cadastrado com sucesso!');
+          },
+          (error) => {
+            this.toastrService.error('Erro ao cadastrar um medico');
+          }
+        );
+    } else {
+      this.toastrService.error('Campos obrigatorios não preenchidos.');
+    }
   }
 
   montarMedico() {

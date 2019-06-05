@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const ENDPOINTS = {
-  medico: 'medico'
+  medico: 'medico',
+  consulta: 'consulta'
 };
 
 @Injectable()
@@ -34,5 +35,9 @@ export class ConsultasService {
     }
 
     return of(consultas);
+  }
+
+  cadastrarConsulta(consulta: Consulta) {
+    return this.http.post(`${environment.API_URL}/${ENDPOINTS.consulta}`, consulta);
   }
 }
