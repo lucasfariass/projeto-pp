@@ -4,6 +4,7 @@ import { ConsultasService } from '../../services/consultas.service';
 import { MedicosSelect } from '../../models/medicos-select.model';
 import { Consulta } from '../../models/consulta.model';
 import { ConsultaPesquisaResposta } from '../../models/consulta-pesquisa-resposta.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pesquisar-consultas',
@@ -19,7 +20,8 @@ export class PesquisarConsultasComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private consultasService: ConsultasService
+    private consultasService: ConsultasService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class PesquisarConsultasComponent implements OnInit {
   }
 
   resetarFormulario() {
+    this.consultas = new Array<ConsultaPesquisaResposta>();
     this.formPesquisa.reset();
   }
 
@@ -59,7 +62,27 @@ export class PesquisarConsultasComponent implements OnInit {
     this.consultasService.getConsultas(filtros).
       subscribe(
         (res) => {
-          this.consultas = res;
+          if (res.length) {
+            this.consultas = res;
+          } else {
+            this.resetarFormulario();
+            this.toastrService.error('Nenhuma consulta encontrada');
+          }
+        }
+      );
+  }
+
+  deletarConsulta(idConsulta: number) {
+    this.consultasService.deleteConsulta(idConsulta).
+      subscribe(
+        (res) => {
+          this.toastrService.success('Consulta cancelada com sucesso!');
+        },
+        (error) => {
+          this.executarPesquisa();
+        },
+        () => {
+          this.executarPesquisa();
         }
       );
   }

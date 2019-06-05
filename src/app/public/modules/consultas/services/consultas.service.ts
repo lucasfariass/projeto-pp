@@ -34,6 +34,10 @@ export class ConsultasService {
     return this.http.post(`${environment.API_URL}/${ENDPOINTS.consulta}`, consulta);
   }
 
+  deleteConsulta(idConsulta) {
+    return this.http.delete(`${environment.API_URL}/${ENDPOINTS.consulta}/${idConsulta}`);
+  }
+
   getParams(params) {
     Object.keys(params).map(key => {
       if (params[key] || params[key] === false || params[key] === 0) {

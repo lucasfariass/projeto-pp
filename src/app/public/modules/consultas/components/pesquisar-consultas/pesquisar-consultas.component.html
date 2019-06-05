@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-3 form-group">
           <label for="">Data</label>
-          <input type="text" class="form-control" formControlName="data">
+          <input type="text" mask="00/00/0000" class="form-control" formControlName="data">
         </div>
       </div>
     </form>
@@ -43,7 +43,7 @@
           <td>{{consulta.medico.nome}}</td>
           <td>{{consulta.data}}</td>
           <td>{{consulta.hora}}</td>
-          <td></td>
+          <td><span class="close" title="Cancelar consulta" (click)="deletarConsulta(consulta.id)">&times;</span></td>
         </tr>
       </tbody>
     </table>
