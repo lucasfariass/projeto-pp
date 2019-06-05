@@ -26,7 +26,7 @@ export class ConsultasService {
 
     for (let index = 0; index < 18; index++) {
       const element: Consulta = {
-        medico: `Medico ${index}`,
+        idMedico: `Medico ${index}`,
         id: index,
         data: '28/05/2019',
         hora: '18:38'

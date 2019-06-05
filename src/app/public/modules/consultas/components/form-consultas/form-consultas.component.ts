@@ -27,7 +27,7 @@ export class FormConsultasComponent implements OnInit {
 
   criarForm() {
     this.formConsulta = this.fb.group({
-      medico: [null, Validators.required],
+      idMedico: [null, Validators.required],
       data: [null, Validators.required],
       hora: [null, Validators.required]
     });
